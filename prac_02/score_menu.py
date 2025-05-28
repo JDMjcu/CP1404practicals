@@ -7,17 +7,22 @@ def main():
     """Function docstring"""
     print(MENU)
     user_selection = str(input("Choose an option from above :"))
+    score = None
     
     while user_selection != "Q":
         if user_selection == "G":
             score = get_score()
 
         elif user_selection == "P":
-            print(f"your score is {evaluate_score(score)}")
-         
+            if score != None:
+                print(f"your score is {evaluate_score(score)}")
+            else:
+                print("Please get a score")
         elif user_selection == "S":
-            print_stars(score)
-        
+            if score != None:
+                print_stars(score)
+            else:
+                print("Please get a score")
         print(MENU)
         user_selection = str(input("Choose an option from above :"))
     
