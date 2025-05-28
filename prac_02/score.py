@@ -1,16 +1,15 @@
 """
 James Dixon-Mills
-CP1404/CP5632 - Practical 1
-Broken program to determine score status
+CP1404/CP5632 - Practical 2
+program to determine score status
 """
 score = float(input("Enter score: "))
 
-if score >= 0 and score <= 100:
-    if score >= 90:
-        print("Excellent Effort")
-    elif score >= 50:
-        print("Passable")
-    else:
-        print("Bad")
-else:
+if score < 0 or score > 100:
     print("Invalid Score")
+elif score >= 90:
+    print("Excellent")
+elif score >= 50:
+    print("Passable")
+else:
+    print("Bad")
