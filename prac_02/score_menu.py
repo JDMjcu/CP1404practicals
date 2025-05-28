@@ -1,23 +1,7 @@
-'''display menu
-get choice
-while choice != <quit option>
-    if choice == <first option>
-        <do first task>
-    else if choice == <second option>
-        <do second task>
-    ...
-    else if choice == <n-th option>
-        <do n-th task>
-    else
-        display invalid input error message
-    display menu
-    get choice
-<do final thing, if needed>'''
-
 
 """James Dixon-Mills Practical 2"""
 
-MENU = "(G)et a valid score (0-100)\n(P)rint result\n(S)how stars\n(Q)uit"
+MENU = "\n(G)et a valid score (0-100)\n(P)rint result\n(S)how stars\n(Q)uit"
 
 def main():
     """Function docstring"""
@@ -29,17 +13,20 @@ def main():
             score = get_score()
 
         elif user_selection == "P":
-            if score == None:
-                print("Please get a score")
-            print(evaluate_score(score))
+            print(f"your score is {evaluate_score(score)}")
+         
+        elif user_selection == "S":
+            print_stars(score)
         
         print(MENU)
         user_selection = str(input("Choose an option from above :"))
-
+    
+    print("goodbye")
 
 def get_score():
-    """Function docstring"""
-    return int(input("Please Choose a number from 0 - 100 : ")) 
+    """gets user input for the score"""
+    return float(input("Enter a number: "))
+
     
 def evaluate_score(score):
     """Seperates the score into 4 evaluations"""
@@ -51,5 +38,11 @@ def evaluate_score(score):
         return "Passable"
     else:
         return "Bad"  
-
+    
+def print_stars(score):
+    """Uses the score to make a string of *"""
+    for i in range(int(score)):
+        print('*', end=' ')
+    
+    
 main()
