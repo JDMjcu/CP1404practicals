@@ -30,7 +30,7 @@ def main():
 
 def get_score():
     """gets user input for the score"""
-    return float(input("Enter a number: "))
+    return int(input("Enter a number: "))
 
     
 def evaluate_score(score):
@@ -46,8 +46,7 @@ def evaluate_score(score):
     
 def print_stars(score):
     """Uses the score to make a string of *"""
-    for i in range(int(score)):
-        print('*', end=' ')
+    print('*' * score)
     
     
 main()
