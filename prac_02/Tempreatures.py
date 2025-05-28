@@ -1,31 +1,43 @@
 """
 James Dixon-Mills
-CP1404 - Practical 1
-Pseudocode for temperature conversion
-
-Get the farenhiet value, 
-Calculate what the equivalent celcius tempreture is
-print the celcius temp
+CP1404 - Practical 2
 
 """
 
 MENU = """C - Convert Celsius to Fahrenheit
 F - Convert Fahrenheit to Celsius
 Q - Quit"""
-print(MENU)
-choice = input(">>> ").upper()
-while choice != "Q":
-    if choice == "C":
-        celsius = float(input("Celsius: "))
-        fahrenheit = celsius * 9.0 / 5 + 32
-        print(f"Result: {fahrenheit:.2f} F")
-    elif choice == "F":
-        fahrenheit = float(input("Fahrenheit: "))
-        celsius = 5 / 9 * (fahrenheit - 32)
-        print(f"Result: {celsius:.2f} F")
-        
-    else:
-        print("Invalid option")
+
+
+def main():
+    """Tempreture conversion program """
+    
     print(MENU)
     choice = input(">>> ").upper()
-print("Thank you.")
+    
+    while choice != "Q":
+        if choice == "C":
+            celsius = float(input("Celcius: "))
+            fahrenheit = convert_celcius_to_farenheit(celsius)
+            print(f"{celsius}'C is {fahrenheit:.2f}'F ")
+            
+        elif choice == "F":
+            fahrenheit = float(input("Fahrenheit: "))
+            celcius = convert_farenheit_to_celcius(fahrenheit)
+            print(f"{fahrenheit}'F is {celcius:.2f}'C ")
+        
+        else:
+            print("Invalid option")
+        print(MENU)
+        choice = input(">>> ").upper()
+    print("Thank you.")
+
+def convert_celcius_to_farenheit(celsius):
+    return celsius * 9.0 / 5 + 32
+    
+    
+def convert_farenheit_to_celcius(fahrenheit):
+    return 5 / 9 * (fahrenheit - 32)
+   
+    
+main()
