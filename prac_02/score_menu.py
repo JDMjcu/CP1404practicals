@@ -17,19 +17,39 @@ while choice != <quit option>
 
 """James Dixon-Mills Practical 2"""
 
-from score import evaluate_score
-# imports
-# CONSTANTS
+MENU = "(G)et a valid score (0-100)\n(P)rint result\n(S)how stars\n(Q)uit"
 
 def main():
     """Function docstring"""
-    # statements...
-    do_stuff()
+    print(MENU)
+    user_selection = input(str("Choose an option from above :"))
+    
+    while user_selection != "Q":
+        if user_selection == "G":
+            score = get_score()
+
+        elif user_selection == "P":
+            if score == None:
+                print("Please get a score")
+            print(evaluate_score(score))
+        
+        print(MENU)
+        user_selection = input(str("Choose an option from above :"))
 
 
-def do_stuff():
+def get_score():
     """Function docstring"""
-    # statements...  
-
+    return int(input("Please Choose a number from 0 - 100 : ")) 
+    
+def evaluate_score(score):
+    """Seperates the score into 4 evaluations"""
+    if score < 0 or score > 100:
+        return "Invalid Score"
+    elif score >= 90:
+        return "Excellent"
+    elif score >= 50:
+        return "Passable"
+    else:
+        return "Bad"  
 
 main()
