@@ -4,7 +4,7 @@
 MENU = "\n(G)et a valid score (0-100)\n(P)rint result\n(S)how stars\n(Q)uit"
 
 def main():
-    """Function docstring"""
+    """Gives user a selection of choices in a menu"""
     print(MENU)
     user_selection = str(input("Choose an option from above :"))
     score = None
@@ -15,7 +15,8 @@ def main():
 
         elif user_selection == "P":
             if score != None:
-                print(f"your score is {evaluate_score(score)}")
+                Evaluation = evaluate_score(score)
+                print(f"your score is {Evaluation}")
             else:
                 print("Please get a score")
         elif user_selection == "S":
