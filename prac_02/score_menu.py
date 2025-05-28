@@ -21,6 +21,7 @@ def main():
                 print("Please get a score")
         elif user_selection == "S":
             if score != None:
+                # Prints the score as a line of *
                 print('*' * score)
             else:
                 print("Please get a score")
@@ -44,7 +45,5 @@ def evaluate_score(score):
         return "Passable"
     else:
         return "Bad"  
-    
-
-    
+      
 main()
