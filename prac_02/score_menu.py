@@ -21,7 +21,7 @@ def main():
                 print("Please get a score")
         elif user_selection == "S":
             if score != None:
-                print_stars(score)
+                print('*' * score)
             else:
                 print("Please get a score")
         print(MENU)
@@ -45,9 +45,6 @@ def evaluate_score(score):
     else:
         return "Bad"  
     
-def print_stars(score):
-    """Uses the score to make a string of *"""
-    print('*' * score)
-    
+
     
 main()
