@@ -6,7 +6,7 @@ program to determine score status
 import random
 
 def main():
-    """Recieves score input and prints the evaluation"""
+    """Recieve input and print evaluation."""
     score = float(input("Enter score: "))
     print(evaluate_score(score))
 
@@ -15,7 +15,7 @@ def main():
 
 
 def evaluate_score(score):
-    """Seperates the score into 4 evaluations"""
+    """Seperate the score into 4 evaluations."""
     if score < 0 or score > 100:
         return "Invalid Score"
     elif score >= 90:

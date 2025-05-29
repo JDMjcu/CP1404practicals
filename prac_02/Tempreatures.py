@@ -10,7 +10,7 @@ Q - Quit"""
 
 
 def main():
-    """Tempreture conversion program """
+    """Tempreture conversion program."""
     
     print(MENU)
     choice = input(">>> ").upper()
