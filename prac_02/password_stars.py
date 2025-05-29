@@ -10,7 +10,7 @@ def main():
     print_stars(password)
 
 def get_password(REQUIRED_LENGTH):
-    """get password, making sure it meets the required length"""
+    """Get password, while verify the required length."""
     password = input(str(f"Create a password of atleast {REQUIRED_LENGTH} letters: "))
     while len(password) < REQUIRED_LENGTH:
         password = input(str(f"Your entered password is too small\nCreate a password of atleast {REQUIRED_LENGTH} letters: "))
@@ -19,7 +19,7 @@ def get_password(REQUIRED_LENGTH):
 
     
 def print_stars(password):
-    """prints the stars for length of password"""
+    """Print an amount of stars for length of password."""
     for i in range(len(password)):
         print('*', end=' ')
         

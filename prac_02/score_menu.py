@@ -4,7 +4,7 @@
 MENU = "\n(G)et a valid score (0-100)\n(P)rint result\n(S)how stars\n(Q)uit"
 
 def main():
-    """Gives user a selection of choices in a menu"""
+    """Give user a selection of choices in menu."""
     print(MENU)
     user_selection = str(input("Choose an option from above :"))
     score = None
@@ -15,8 +15,8 @@ def main():
 
         elif user_selection == "P":
             if score != None:
-                Evaluation = evaluate_score(score)
-                print(f"your score is {Evaluation}")
+                evaluation = evaluate_score(score)
+                print(f"your score is {evaluation}")
             else:
                 print("Please get a score")
         elif user_selection == "S":
@@ -31,12 +31,12 @@ def main():
     print("goodbye")
 
 def get_score():
-    """gets user input for the score"""
+    """Get user input for score."""
     return int(input("Enter a number: "))
 
     
 def evaluate_score(score):
-    """Seperates the score into 4 evaluations"""
+    """Seperate the score into 4 evaluations."""
     if score < 0 or score > 100:
         return "Invalid Score"
     elif score >= 90:
