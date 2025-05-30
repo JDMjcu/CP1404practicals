@@ -7,20 +7,20 @@ def main():
     """Give user a selection of choices in menu."""
     print(MENU)
     user_selection = str(input("Choose an option from above :"))
-    score = None
+    score = -1
     
     while user_selection != "Q":
         if user_selection == "G":
             score = get_score()
 
         elif user_selection == "P":
-            if score != None:
+            if score >= 0:
                 evaluation = evaluate_score(score)
                 print(f"your score is {evaluation}")
             else:
                 print("Please get a score")
         elif user_selection == "S":
-            if score != None:
+            if score >= 0:
                 # Prints the score as a line of *
                 print('*' * score)
             else:
