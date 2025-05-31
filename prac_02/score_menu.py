@@ -31,15 +31,16 @@ def main():
     print("goodbye")
 
 def get_score():
-    """Get user input for score."""
-    return int(input("Enter a number: "))
+    """Get user input for score while checking if its in bounds."""
+    score = int(input("Enter a number between 0 and 100: "))
+    while  score < 0 or score > 100:
+        print("invalid score")
+        score = int(input("Enter a number between 0 and 100: "))
+    return score
 
-    
 def evaluate_score(score):
-    """Seperate the score into 4 evaluations."""
-    if score < 0 or score > 100:
-        return "Invalid Score"
-    elif score >= 90:
+    """Seperate the score into 3 evaluations."""
+    if score >= 90:
         return "Excellent"
     elif score >= 50:
         return "Passable"
