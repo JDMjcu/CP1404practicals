@@ -12,3 +12,12 @@ name = input("What is your name? : ")
 print(name, file=out_file)
 out_file.close
 
+# 2)
+# In the same file, but as if it were a separate program, write code that opens "name.txt" and reads the name (as above) then prints (note the exact output),
+
+in_file = open("name.txt", "r")
+name = in_file.read().strip()
+in_file.close
+print(f"Hi {name}!")
+
+
