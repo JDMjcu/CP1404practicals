@@ -40,17 +40,22 @@ def is_valid_password(password):
         # TODO: count each kind of character (use str methods like isdigit)
         # Referencing https://www.w3schools.com/python/python_ref_string.asp
         # test number of lower with islower, then amend the count
-        if character.islower:
+        if character.islower():
             number_of_lower += 1
-            
         # test number of upper with isupper, then amend the count
+        elif character.isupper():
+            number_of_upper += 1
         # test number of digit with isdigit, then amend the count
+        elif character.isdigit():
+            number_of_digit += 1
         # test number of special digit by referencing to see if that is in SPECIAL_CHARACTERS 
 
-        print(number_of_lower,number_of_digit,number_of_special,number_of_upper)
+        
         
     # TODO: if any of the 'normal' counts are zero, return False
-
+    print(number_of_lower)
+    print(number_of_upper)
+    print(number_of_digit)
     # if upper, lower or digit = 0 
     # return false
     
