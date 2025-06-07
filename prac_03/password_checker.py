@@ -56,10 +56,22 @@ def is_valid_password(password):
     # print(number_of_digit) 
     # print(number_of_special)  
     
-    # TODO: if any of the 'normal' counts are zero, return False
-  
+   
     # if upper, lower or digit = 0 
     # return false
+    
+    # Very dry 
+    # if number_of_lower == 0:
+    #     return False
+    # if number_of_upper == 0:
+    #     return False
+    # if number_of_digit == 0:
+    #     return False
+    
+    # Might be illegal but it works
+    if 0 in (number_of_upper,number_of_lower,number_of_digit):
+        return False
+    
     
     # TODO: if special characters are required, then check the count of those
     
