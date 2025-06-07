@@ -37,48 +37,27 @@ def is_valid_password(password):
     number_of_special = 0
     
     for character in password:
-        # Referencing https://www.w3schools.com/python/python_ref_string.asp
-        # test number of lower with islower, then amend the count
+        
         if character.islower():
             number_of_lower += 1
-        # test number of upper with isupper, then amend the count
+        
         elif character.isupper():
             number_of_upper += 1
-        # test number of digit with isdigit, then amend the count
+        
         elif character.isdigit():
             number_of_digit += 1
-        # test number of special digit by referencing to see if that is in SPECIAL_CHARACTERS 
+        
         elif character in SPECIAL_CHARACTERS:
             number_of_special += 1
         
-    # print(number_of_lower)
-    # print(number_of_upper)
-    # print(number_of_digit) 
-    # print(number_of_special)  
-    
-   
-    # if upper, lower or digit = 0 
-    # return false
-    
-    # Very dry 
-    # if number_of_lower == 0:
-    #     return False
-    # if number_of_upper == 0:
-    #     return False
-    # if number_of_digit == 0:
-    #     return False
-    
-    # Might be illegal but it works
     if 0 in (number_of_upper,number_of_lower,number_of_digit):
         return False
     
+    if IS_SPECIAL_CHARACTER_REQUIRED == True:
+        if number_of_special == 0:
+            return False
     
-    # TODO: if special characters are required, then check the count of those
-    
-    # if the special charaters are required and the number of count is 0
-    # return false 
-
-    # if we get here (without returning False), then the password must be valid
+  
     return True
 
 
