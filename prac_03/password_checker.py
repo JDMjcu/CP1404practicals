@@ -28,19 +28,32 @@ def main():
 def is_valid_password(password):
     """Determine if the provided password is valid."""
     # TODO: if length is wrong, return False
-
+    
+    # if password = less than min  or greater than max
+    #     return False
+    
     number_of_lower = 0
     number_of_upper = 0
     number_of_digit = 0
     number_of_special = 0
+    
     for character in password:
         # TODO: count each kind of character (use str methods like isdigit)
-        pass
+        # Referencing https://www.w3schools.com/python/python_ref_string.asp
+        # test number of lower with islower, then amend the count
+        # test number of upper with isupper, then amend the count
+        # test number of digit with isdigit, then amend the count
+        # test number of special digit by referencing to see if that is in SPECIAL_CHARACTERS 
 
     # TODO: if any of the 'normal' counts are zero, return False
 
+    # if upper, lower or digit = 0 
+    # return false
+    
     # TODO: if special characters are required, then check the count of those
-    # and return False if it's zero
+    
+    # if the special charaters are required and the number of count is 0
+    # return false 
 
     # if we get here (without returning False), then the password must be valid
     return True
