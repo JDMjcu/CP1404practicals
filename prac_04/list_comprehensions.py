@@ -40,7 +40,7 @@ print(numbers)
 # list comprehension to create a list of only the numbers that are
 # greater than 9 from the numbers (not strings) you just created
 
-big_number = [number for number in numbers if number > 9]
+big_numbers = [number for number in numbers if number > 9]
 print(big_number)
 
 # (more advanced) use a list comprehension and the join string method
