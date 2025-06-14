@@ -18,9 +18,9 @@ NUMBERS_PER_LINE = 6
 MINIMUM_NUMBER = 1
 MAXIMUM_NUMBER = 45
 
-number_of_games = int(input("How many quickpicks do you want to play? "))
+number_of_quickpicks = int(input("How many quickpicks do you want to play? "))
 
-for game in range(number_of_games):
+for game in range(number_of_quickpicks):
     quick_pick = []
     for number in range(NUMBERS_PER_LINE):
         number = random.randint(MINIMUM_NUMBER, MAXIMUM_NUMBER) 
