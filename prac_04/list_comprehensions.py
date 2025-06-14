@@ -41,7 +41,7 @@ print(numbers)
 # greater than 9 from the numbers (not strings) you just created
 
 big_numbers = [number for number in numbers if number > 9]
-print(big_number)
+print(big_numbers)
 
 # (more advanced) use a list comprehension and the join string method
 # to create a string (not list) of the last names for those full names longer than 11 characters
