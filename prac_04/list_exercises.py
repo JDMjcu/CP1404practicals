@@ -4,6 +4,8 @@ The program should then output information about these numbers, as in the output
 You can use the functions min, max, sum and len, and you can use the append method to add a number to a list
 
 """
+# Basic list operations
+
 numbers = []
 print("Please enter 5 numbers")
 for i in range(5):
@@ -19,9 +21,15 @@ print(f"The largest number is {max(numbers)}")
 print(f"The average number is {sum(numbers)/len(numbers)}")
 
 
-# b
+# Woefully inadequate security checker
+
 usernames = ['jimbo', 'giltson98', 'derekf', 'WhatSup',
             'NicolEye', 'swei45', 'BaseInterpreterInterface', 
             'BaseStdIn', 'Command', 'ExecState', 'InteractiveConsole', 
             'InterpreterInterface', 'StartServer', 'bob'] 
 
+username = input("Please enter your username: ")
+if username in usernames:
+    print("Access granted")
+else:
+    print("Access Denied")
