@@ -29,4 +29,16 @@ for game in range(number_of_quickpicks):
             number = random.randint(MINIMUM_NUMBER, MAXIMUM_NUMBER) 
         quick_pick.append(number)
         quick_pick.sort()
-    print(quick_pick)
+
+    
+# Plan to correct formating
+# check if number is single digit if it is add a space before it then recreate the print.
+
+    formatted_quickpick = []
+    for number in quick_pick:
+        if number < 10:
+            formatted_quickpick.append(f" {number}")
+        else:
+            formatted_quickpick.append(str(number))
+
+    print(" ".join(formatted_quickpick))
