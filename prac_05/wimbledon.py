@@ -24,7 +24,7 @@ FILENAME = "wimbledon.csv"
 def main():
     """Read the file and output details for the wimbledon"""
     records = read_record(FILENAME)
-    winner_to_victories, countries = process_data(records)    
+    champion_to_number_of_victories, countries = process_data(records)    
 
 
 def read_record(FILENAME):
@@ -39,16 +39,16 @@ def read_record(FILENAME):
 
 
 def process_data(records):
-    winner_to_victories = {} # Winner, : count
+    champion_to_number_of_victories = {} # champion, : count
     countries = set()
     for record in records:
         countries.add(record(1))
         winner = record[2]
-        if winner in winner_to_victories:
-            winner_to_victories[winner] += 1
+        if winner in champion_to_number_of_victories:
+            champion_to_number_of_victories[winner] += 1
         else:
-            winner_to_victories[winner] = 1
-    return winner_to_victories, countries
+            champion_to_number_of_victories[winner] = 1
+    return champion_to_number_of_victories, countries
     
     
     
