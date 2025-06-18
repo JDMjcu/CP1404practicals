@@ -47,13 +47,13 @@ def process_data(records):
         
         countries.add(record[1])
         
-        winner = record[2]
+        champion = record[2]
         
-        if winner in champion_to_count:
-            champion_to_count[winner] += 1
+        if champion in champion_to_count:
+            champion_to_count[champion] += 1
             
         else:
-            champion_to_count[winner] = 1
+            champion_to_count[champion] = 1
             
     return champion_to_count, countries
 
