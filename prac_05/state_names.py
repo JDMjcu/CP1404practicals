@@ -9,7 +9,6 @@ CODE_TO_NAME = {"QLD": "Queensland", "NSW": "New South Wales", "NT": "Northern T
 
 print(CODE_TO_NAME)
 
-
 state_code = input("Enter short state: ").upper()
 while state_code != "":
     try:
