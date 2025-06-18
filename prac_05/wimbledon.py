@@ -1,6 +1,6 @@
 """
 Expected time: 30 Minutes 
-Actual time:  
+Actual time:  7 minutes for read function,
 JDM CP1404 
 Prac 05  - Wimbledon
 """
@@ -17,4 +17,20 @@ Prac 05  - Wimbledon
 # display results
     # the display should print the champions and the amount of times they have won
     # the countries of the champions in alphabeticlal order
-    
+
+
+
+
+FILENAME = "wimbledon.csv"
+
+def read_data(FILENAME):
+    """Reads wimbledon.csv and stores it as a list"""
+    records = []
+    with open(FILENAME, "r", encoding="utf-8-sig") as in_file:
+        for line in in_file:
+            parts = line.strip().split(",")
+            records.append(parts)  
+        
+        print(records)
+
+read_data(FILENAME)
