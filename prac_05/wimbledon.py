@@ -1,25 +1,11 @@
 """
 Expected time: 30 Minutes initially 60 minutes after starting it
-Actual time:  7 minutes for read function, 34 for process function
+Actual time:  7 minutes for read function, 34 for process function, after editting and completing 53 minutes
 JDM CP1404 
 Prac 05  - Wimbledon
 """
 
-
-# Planning
-# create 4 fucntions
-# main
-# read_data
-    # Data is recorded as Year,Country,Champion,Country,Runner-up,Score in the final 
-    
-# process_data
-    # score in the final shows how many games they have won by the amount of scores
-# display results
-    # the display should print the champions and the amount of times they have won
-    # the countries of the champions in alphabeticlal order
 FILENAME = "wimbledon.csv"
-
-
 
 def main():
     """Read the file and output details for the wimbledon"""
