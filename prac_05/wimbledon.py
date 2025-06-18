@@ -1,6 +1,6 @@
 """
 Expected time: 30 Minutes initially 60 minutes after starting it
-Actual time:  7 minutes for read function,
+Actual time:  7 minutes for read function, 34 for process function
 JDM CP1404 
 Prac 05  - Wimbledon
 """
@@ -24,14 +24,15 @@ FILENAME = "wimbledon.csv"
 def main():
     """Read the file and output details for the wimbledon"""
     records = read_record(FILENAME)
-    champion_to_number_of_victories, countries = process_data(records)    
-
+    champion_to_count, countries = process_data(records)    
+    display_data(champion_to_count, countries)
 
 def read_record(FILENAME):
     """Reads wimbledon.csv and stores it as a list"""
     records = []
     with open(FILENAME, "r", encoding="utf-8-sig") as in_file:
-        for line in in_file.readlines()[1:]: # resolve error with champion being included in the process data
+        
+        for line in in_file.readlines()[1:]: # Remove CSV header 
             parts = line.strip().split(",")
             records.append(parts)  
             
@@ -39,19 +40,31 @@ def read_record(FILENAME):
 
 
 def process_data(records):
-    champion_to_number_of_victories = {} # champion, : count
+    """Create a dictionary for champion_to_count and a set of countries"""
+    champion_to_count = {} # champion, : count
     countries = set()
     for record in records:
-        countries.add(record(1))
-        winner = record[2]
-        if winner in champion_to_number_of_victories:
-            champion_to_number_of_victories[winner] += 1
-        else:
-            champion_to_number_of_victories[winner] = 1
-    return champion_to_number_of_victories, countries
-    
-    
-    
         
+        countries.add(record[1])
+        
+        winner = record[2]
+        
+        if winner in champion_to_count:
+            champion_to_count[winner] += 1
+            
+        else:
+            champion_to_count[winner] = 1
+            
+    return champion_to_count, countries
+
+def display_data(champion_to_count, countries):
+    """Display the champions and their countries"""
+    print("Wimbledon Champions: ")    
+    
+    for name, count in champion_to_count.items():
+        print(name, count)
+    
+    print(f"\nThese {len(countries)} countries have won Wimbledon: ")
+    print(", ".join(sorted(countries)))
 
 main()
