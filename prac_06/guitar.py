@@ -4,7 +4,8 @@ Guitar task
 Start_Time = 7:41
 Estimated time = 60 minutes
 Completed First revision of guitar.py @ 7:51
-Finsih time = """
+Finsih time = 8:32 
+"""
 
 
 
