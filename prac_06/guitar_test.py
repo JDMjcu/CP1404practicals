@@ -17,3 +17,6 @@ print(f"{object_2.name} get age () - expected 2 got {object_2.get_age()}")
 # Test is_vintage method
 print(f"{object_1.name} is_vintage() - expected True got {object_1.is_vintage()}")
 print(f"{object_2.name} is_vintage() - expected False got {object_2.is_vintage()}")
+
+object_3 = Guitar("50-year old Guitar", 1975, 12)
+print(f"{object_3.name} is_vintage() - expected True got {object_3.is_vintage()}")
