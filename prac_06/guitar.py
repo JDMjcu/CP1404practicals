@@ -22,7 +22,7 @@ class Guitar():
     
     
     def get_age(self):
-        return 2025-self.year()
+        return 2025 - self.year
     
     def is_vintage(self):
         return True if self.get_age >= 50 else False
