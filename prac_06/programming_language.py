@@ -6,10 +6,14 @@
 class ProgrammingLanguage():
     """Bla bla b;a"""
     
-    def __init__(self, language, typing, reflection, year):
+    def __init__(self, language = '', typing = '', reflection = '', year = '0'):
         """Construct a Programming language based of the provided details"""
         self.language = language
         self.reflection = reflection
         self.year = year
         self.typing = typing
         
+    def is_dynamic(self):
+        return self.typing == "Dynamic"
+    
+    
