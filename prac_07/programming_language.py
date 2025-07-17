@@ -7,12 +7,13 @@ Programming Language class with tests.
 class ProgrammingLanguage:
     """Represent information about a programming language."""
 
-    def __init__(self, name, typing, reflection, year):
+    def __init__(self, name, typing, reflection, year, arithmetic):
         """Construct a ProgrammingLanguage from the given values."""
         self.name = name
         self.typing = typing
         self.reflection = reflection
         self.year = year
+        self.arithmetic = arithmetic
 
     def __repr__(self):
         """Return string representation of a ProgrammingLanguage."""
@@ -22,14 +23,19 @@ class ProgrammingLanguage:
         """Determine if language is dynamically typed."""
         return self.typing == "Dynamic"
 
+    def is_pointer_arithmetic(self):
+        """Determine if language uses Pointer Arithmetic"""
+        return self.arithmetic == "Pointer"
 
 def run_tests():
     """Run simple tests/demos on ProgrammingLanguage class."""
-    ruby = ProgrammingLanguage("Ruby", "Dynamic", True, 1995)
-    python = ProgrammingLanguage("Python", "Dynamic", True, 1991)
-    visual_basic = ProgrammingLanguage("Visual Basic", "Static", False, 1991)
+    ruby = ProgrammingLanguage("Ruby", "Dynamic", True, 1995, "None")
+    python = ProgrammingLanguage("Python", "Dynamic", True, 1991, "None")
+    visual_basic = ProgrammingLanguage("Visual Basic", "Static", False, 1991, "None")
+    cplusplus = ProgrammingLanguage("C++", "Static", False, 1983, "Pointer")
 
-    languages = [ruby, python, visual_basic]
+
+    languages = [ruby, python, visual_basic,cplusplus]
     print(python)
 
     print("The dynamically typed languages are:")
@@ -37,6 +43,11 @@ def run_tests():
         if language.is_dynamic():
             print(language.name)
 
+    
+    print("\nLanguages that support pointer arithmetic:")
+    for language in languages:
+        if language.is_pointer_arithmetic():
+            print(language.name)
 
 if __name__ == "__main__":
     run_tests()
