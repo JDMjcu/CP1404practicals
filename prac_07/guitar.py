@@ -15,8 +15,8 @@ class Guitar():
     def __init__(self, name = '', year = 0, cost = 0.0):
         """Records details of the guitar."""
         self.name = name
-        self.year = year
-        self.cost = cost
+        self.year = int(year)         
+        self.cost = float(cost)       
     
     def __str__(self):
         """Return a string of the guitar."""
