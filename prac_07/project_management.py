@@ -5,7 +5,7 @@ Estimated time:
                 10 Minutes for Class nope => 20 minutes (actual) 
                 2 hr for the programm
                 Start time: 11:50
-                took a break froom 12:40 ->
+                took a break froom 12:40 -> 2:00
 
 """
 
@@ -25,9 +25,9 @@ def main():
     # Create menu
     menu = "- (L)oad projects\n- (S)ave projects\n- (D)isplay projects\n- (F)ilter projects by date\n- (A)dd new project\n- (U)pdate project\n- (Q)uit"
     print(menu)
-    choice = input(">>> ")
+    choice = input(">>> ").lower()
     
-    while choice.lower() != "q":
+    while choice != "q":
         if choice == "l":
             filename = input("Filename: ")
             projects = load_projects(filename)
@@ -56,8 +56,20 @@ def main():
 
 def load_projects(filename):
     """Create a list of projects from a file. """
-    print(f"dosomething with {filename}")
-    return [1,2,3,4,5]
+    # Assuming all files have the header
+    projects = []
+    with open(filename, 'r') as in_file:
+        next(in_file)  # Skip the header
+        for line in in_file:
+            parts = line.strip().split('\t') # \t = tab 
+            name = parts[0]
+            date = parts[1]
+            priority = parts[2]
+            cost = parts[3]
+            completion_percentage = parts[4]
+            projects.append(Project(name, date, priority, cost, completion_percentage))
+            
+    return projects
 
 def save_projects(filename, projects):
     """ Save a list of projects to a file. """
