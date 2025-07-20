@@ -100,12 +100,36 @@ def filter_projects_by_date(projects):
     
 def add_new_project(projects):
     """ Add a project to the list of projects with user input. """
-    print(f"dosomething with {projects}")
+    print("Let's add a new project")
+    try:
+        name = input("Name: ")
+        date = input("Start date (dd/mm/yy): ")
+        
+        try:
+            # Validate the format before passing to Project
+            datetime.datetime.strptime(date, "%d/%m/%Y")
+        except ValueError:
+                print("Invalid date format. Please use dd/mm/yyyy (e.g., 25/12/2023).")
+                date = input("Start date (dd/mm/yy): ")
+                
+        priority = int(input("priority: "))
+        cost = float(input("Cost estimate: $ "))
+        completion_percentage = float(input("Percent complete: "))
+    except(ValueError):
+        print("invalid input")
+        return
+    
+    if completion_percentage < 0 or completion_percentage > 100:
+        print("Completion percent must be within 0-100")
+        completion_percentage = float(input("Percent complete: "))
+    
+    projects.append(Project(name, date, priority, cost, completion_percentage))
+    return projects
     
 def update_project(projects):
     """ Update a project in the list of projects."""
     for index, project in enumerate(projects):
-        print(f"{index} - {project}")
+        print(f"{index} {project}")
     
     try:
         choice = int(input("Project choice: "))
@@ -115,10 +139,11 @@ def update_project(projects):
         return
 
     
-    completion_percentage =input("New Percentage: ")
+    completion_percentage = input("New Percentage: ")
     priority = input("New Priority: ")
 
     if completion_percentage != "":
+        # modify the objects completion percentage
         try:
             completion_percentage = float(completion_percentage)
             selected_project.completion_percentage = completion_percentage
@@ -126,7 +151,7 @@ def update_project(projects):
             print("Invalid percentage. Not updated.")
         
     if priority != "":    
-        # Update the priority
+        # modify the objects priority
         try:
             priority = int(priority)
             selected_project.priority = priority
