@@ -104,7 +104,33 @@ def add_new_project(projects):
     
 def update_project(projects):
     """ Update a project in the list of projects."""
-    print(f"dosomething with {projects}")
+    for index, project in enumerate(projects):
+        print(f"{index} - {project}")
     
+    try:
+        choice = int(input("Project choice: "))
+        selected_project = projects[choice]
+    except (ValueError):
+        print("Invalid project number.")
+        return
 
+    
+    completion_percentage =input("New Percentage: ")
+    priority = input("New Priority: ")
+
+    if completion_percentage != "":
+        try:
+            completion_percentage = float(completion_percentage)
+            selected_project.completion_percentage = completion_percentage
+        except ValueError:
+            print("Invalid percentage. Not updated.")
+        
+    if priority != "":    
+        # Update the priority
+        try:
+            priority = int(priority)
+            selected_project.priority = priority
+        except ValueError:
+            print("Invalid priority. Not updated.")          
+    
 main()
