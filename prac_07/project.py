@@ -16,9 +16,11 @@ class Project():
         return self.completion_percentage >= 100
 
     def __lt__(self, other):
+        """ Compares two projects returns true if self is less than other. """
         return self.priority < other.priority
     
     def __str__(self):
+        """ Return a string of the guitar."""
         #Example str Organise Pantry, start: 20/07/2022, priority 1, estimate: $25.00, completion: 55%
         return (f"{self.name}, Start: {self.start_date.strftime('%d/%m/%Y')}, priority {self.priority}, estimate: ${self.cost_estimate}, completion: {self.completion_percentage}%")
     

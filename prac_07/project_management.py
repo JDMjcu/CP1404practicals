@@ -2,15 +2,21 @@
 CP1404 prac07 
 Project managenent task
 Estimated time: 
-                10 Minutes for Class nope => 20 minutes (actual) 
+                10 Minutes for Class nope 
                 2 hr for the programm
                 Start time: 11:50
                 took a break froom 12:40 -> 2:00
 
+Finished time = 3:15 
+Actual programming time: 1 hour 45 mins (105 mins)
+Actual class time: 20 minutes
 """
 
 from project import Project
+from operator import attrgetter
+
 import datetime
+
 DEFAULT_FILENAME = "projects.txt"
 
 def main():
@@ -20,7 +26,7 @@ def main():
     
     # Load files from default filename
     projects = load_projects(DEFAULT_FILENAME)
-    print(f"Loaded {len(projects)} projects from {DEFAULT_FILENAME}")
+    
     
     # Create menu
     menu = "- (L)oad projects\n- (S)ave projects\n- (D)isplay projects\n- (F)ilter projects by date\n- (A)dd new project\n- (U)pdate project\n- (Q)uit"
@@ -68,12 +74,20 @@ def load_projects(filename):
             cost = parts[3]
             completion_percentage = parts[4]
             projects.append(Project(name, date, priority, cost, completion_percentage))
-            
+    
+    print(f"Loaded {len(projects)} projects from {filename}")        
+    
     return projects
 
 def save_projects(filename, projects):
     """ Save a list of projects to a file. """
-    print(f"dosomething with {filename}")
+    with open(filename, 'w') as out_file:
+        # Write header
+        out_file.write("Name\tStart Date\tPriority\tCost Estimate\tCompletion Percentage\n")
+        
+        for project in projects:
+            out_file.write(f"{project.name}\t{project.start_date.strftime('%d/%m/%Y')}\t{project.priority}\t{project.cost_estimate}\t{project.completion_percentage}\n")
+    print(f"Saved {len(projects)} projects to {filename}.txt")
     
 def display_projects(projects):
     """ Display the list of projects when prompted. """
@@ -95,8 +109,25 @@ def display_projects(projects):
         print(f"  {project}")
 
 def filter_projects_by_date(projects):
-    """ Filter the list of projects by date instead of priority."""
-    print(f"dosomething with {projects}")
+    """ Filter the list of projects by date that start after user input."""
+    is_valid_date = False
+    while not is_valid_date:
+        date = input("Show projects that start after date (dd/mm/yy): ")
+        try:
+            # Validate the format before passing to Project
+            date = datetime.datetime.strptime(date, "%d/%m/%Y").date()
+            is_valid_date = True
+        except ValueError:
+            print("Invalid date. Please use dd/mm/yyyy (e.g., 25/12/2023).")
+    
+    filtered_projects = [project for project in projects if project.start_date >= date]   
+    filtered_projects.sort(key=attrgetter('start_date'))
+    
+    if len(filtered_projects) == 0:
+        print (f"No Projects start after {date} ")
+    else:
+        for project in filtered_projects:
+                print(f"  {project}")
     
 def add_new_project(projects):
     """ Add a project to the list of projects with user input. """
@@ -109,8 +140,8 @@ def add_new_project(projects):
             # Validate the format before passing to Project
             datetime.datetime.strptime(date, "%d/%m/%Y")
         except ValueError:
-                print("Invalid date format. Please use dd/mm/yyyy (e.g., 25/12/2023).")
-                date = input("Start date (dd/mm/yy): ")
+            print("Invalid date. Please use dd/mm/yyyy (e.g., 25/12/2023).")
+            date = input("Start date (dd/mm/yy): ")
                 
         priority = int(input("priority: "))
         cost = float(input("Cost estimate: $ "))
