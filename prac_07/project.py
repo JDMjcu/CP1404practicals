@@ -20,7 +20,7 @@ class Project():
         return self.priority < other.priority
     
     def __str__(self):
-        """ Return a string of the guitar."""
+        """ Return a string of the project."""
         #Example str Organise Pantry, start: 20/07/2022, priority 1, estimate: $25.00, completion: 55%
         return (f"{self.name}, Start: {self.start_date.strftime('%d/%m/%Y')}, priority {self.priority}, estimate: ${self.cost_estimate}, completion: {self.completion_percentage}%")
     
