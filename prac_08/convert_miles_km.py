@@ -30,9 +30,10 @@ class ConvertMilesApp(App):
             
     def handle_increment(self, value, direction):
         try:
-            number = float(value) + direction
-            self.root.ids.input_number.text = str(number)
-        except ValueError:
-            pass
-
+            number = float(value)
+        except (ValueError, TypeError):
+            number = 0.0
+        number += direction
+        self.root.ids.input_number.text = str(number)
+        self.handle_calculate(str(number))
 ConvertMilesApp().run()
