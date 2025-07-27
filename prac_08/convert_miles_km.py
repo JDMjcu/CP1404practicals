@@ -6,12 +6,14 @@ Kivy GUI square a number task
 
 from kivy.app import App
 from kivy.lang import Builder
-from kivy.core.window import Window
+from kivy.properties import StringProperty
 
 MILESINKILOMETER = 1.609344 # 1 Mile = 1.609344 Kilometers
 
 class ConvertMilesApp(App):
     """ ConvertMilesApp is a Kivy App for converting miles to kilometers """
+    output_text = StringProperty('')  # Initial value
+    
     def build(self):
         """ Build the Kivy app from the kv file """
         self.title = "Convert Miles to Kilometres"
@@ -22,7 +24,7 @@ class ConvertMilesApp(App):
         """ Converts Miles to kilometes when button is pressed, output result to label widget. """
         try:
             result = float(value) * MILESINKILOMETER
-            self.root.ids.output_label.text = str(result)
+            self.output_text = str(result) 
         except ValueError:
             pass
     
